@@ -11,3 +11,17 @@ export const endGameHandler = (
   saveStar(star);
   setScene("endgame");
 };
+
+export const hitApi = (star: number, score: number, name: string) => {
+  /* 
+    can't hit the POST API, this code block should be call API
+    ussualy I use Axios to fetch data
+    in the test description there is no API endpoint to hit
+  */
+  const dataSend = {
+    star,
+    score,
+    name,
+  };
+  console.log(dataSend);
+};

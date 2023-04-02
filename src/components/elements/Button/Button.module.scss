@@ -6,4 +6,9 @@
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
+  &:disabled {
+    border: 1px solid #796e58;
+    color: #fff;
+    background-color: #796e58;
+  }
 }

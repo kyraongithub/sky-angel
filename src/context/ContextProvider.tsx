@@ -12,6 +12,8 @@ interface IEnvContext {
   setScene: (e: Scene) => void;
   isPaused: boolean;
   setisPaused: (e: boolean) => void;
+  endCause: End;
+  setEndCause: (e: End) => void;
 }
 
 export const GlobalContext = createContext<IEnvContext>({
@@ -25,6 +27,8 @@ export const GlobalContext = createContext<IEnvContext>({
   setScene: () => {},
   isPaused: false,
   setisPaused: () => {},
+  endCause: "crash",
+  setEndCause: () => {},
 });
 
 type Props = {
@@ -32,6 +36,7 @@ type Props = {
 };
 
 type Scene = "home" | "gameplay" | "endgame";
+type End = "fuel" | "crash";
 
 export const GlobalContextProvider = (props: Props) => {
   const [score, setScore] = useState<number>(0);
@@ -39,6 +44,7 @@ export const GlobalContextProvider = (props: Props) => {
   const [fuel, setFuel] = useState<number>(10);
   const [scene, setScene] = useState<Scene>("home");
   const [isPaused, setisPaused] = useState<boolean>(false);
+  const [endCause, setEndCause] = useState<End>("crash");
 
   useEffect(() => {
     if (scene === "gameplay" && !isPaused) {
@@ -48,6 +54,7 @@ export const GlobalContextProvider = (props: Props) => {
           setScore(score + 1);
         } else {
           endGameHandler(score, star, setScene);
+          setEndCause("fuel");
         }
       }, 1000);
       return () => clearInterval(interval);
@@ -67,6 +74,8 @@ export const GlobalContextProvider = (props: Props) => {
         setisPaused,
         star,
         setstar,
+        endCause,
+        setEndCause,
       }}
     >
       {props.children}

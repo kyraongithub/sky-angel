@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./Bird.module.scss";
 
 const Bird = (props: any) => {
-  const { plane } = props;
+  const { plane, setEndCause } = props;
   const { setScene, score, star } = useGlobalState();
   const [top, setTop] = useState<number>(0);
   const [isVisible, setisVisible] = useState<boolean>(true);
@@ -24,9 +24,10 @@ const Bird = (props: any) => {
         )
       ) {
         endGameHandler(score, star, setScene);
+        setEndCause("crash");
       }
     }
-  }, [isVisible, plane, score, setScene, star]);
+  }, [isVisible, plane, score, setEndCause, setScene, star]);
 
   useEffect(() => {
     setTop(Math.floor(Math.random() * (500 - 0 + 1) + 0));

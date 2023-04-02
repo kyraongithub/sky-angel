@@ -6,10 +6,21 @@ import Cloud from "@/components/elements/Cloud";
 import Parachute from "@/components/elements/Parachute";
 import Star from "@/components/elements/Star";
 import React, { useEffect, useRef, useState } from "react";
+import Endgame from "../EndGameForm";
 import styles from "./Gameplay.module.scss";
 const GameScene = (props: any) => {
-  const { score, fuel, isPaused, setisPaused, scene, setFuel, setstar, star } =
-    props;
+  const {
+    score,
+    fuel,
+    isPaused,
+    setisPaused,
+    scene,
+    setFuel,
+    setstar,
+    star,
+    endCause,
+    setEndCause,
+  } = props;
 
   const [left, setleft] = useState<number>(0);
   const [top, settop] = useState<number>(240);
@@ -98,7 +109,7 @@ const GameScene = (props: any) => {
   return (
     <>
       {scene === "endgame" ? (
-        <div>end</div>
+        <Endgame score={score} star={star} endCause={endCause} />
       ) : isPaused ? (
         <div>
           <p>Game Paused</p>
@@ -120,7 +131,9 @@ const GameScene = (props: any) => {
             </div>
             <div className={styles["birds"]}>
               {birds.map((item: any, index: number) => {
-                return <Bird plane={plane} key={index} />;
+                return (
+                  <Bird setEndCause={setEndCause} plane={plane} key={index} />
+                );
               })}
             </div>
             <div className={styles["parachute"]}>
