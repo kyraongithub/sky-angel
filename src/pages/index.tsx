@@ -3,10 +3,7 @@ import { useGlobalState } from "@/context";
 import Homepage from "@/views/home";
 
 const homepage = () => {
-  const { score, setScore } = useGlobalState();
-  const props = { score, setScore };
-
-  return <Homepage {...props} />;
+  return <Homepage {...useGlobalState()} />;
 };
 
 export default homepage;

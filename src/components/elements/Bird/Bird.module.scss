@@ -1,0 +1,61 @@
+.bird {
+  background: url("/images/birds/bird1.png") no-repeat center/cover;
+  width: 150px;
+  height: 100px;
+  animation: sprite-animation 1s steps(8) infinite, spawn 10s ease-out forwards;
+  transform: scaleX(-1);
+  position: absolute;
+  opacity: 1;
+  right: 0;
+  z-index: 2;
+}
+
+@keyframes sprite-animation {
+  0% {
+    background-image: url("/images/birds/bird1.png");
+  }
+  12.5% {
+    background-image: url("/images/birds/bird2.png");
+  }
+  25% {
+    background-image: url("/images/birds/bird3.png");
+  }
+  37.5% {
+    background-image: url("/images/birds/bird4.png");
+  }
+  50% {
+    background-image: url("/images/birds/bird5.png");
+  }
+  62.5% {
+    background-image: url("/images/birds/bird6.png");
+  }
+  75% {
+    background-image: url("/images/birds/bird7.png");
+  }
+  87.5% {
+    background-image: url("/images/birds/bird8.png");
+  }
+  100% {
+    background-image: url("/images/birds/bird1.png");
+  }
+}
+
+@keyframes spawn {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  1% {
+    transform: translateX(-10%);
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(-600%);
+    opacity: 0;
+  }
+}

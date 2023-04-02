@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  align-items: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 20px;
+}
+.clouds,
+.birds {
+  position: relative;
+}
+.plane {
+  width: 200px;
+  position: relative;
+}
