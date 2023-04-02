@@ -111,7 +111,7 @@ const GameScene = (props: any) => {
       {scene === "endgame" ? (
         <Endgame score={score} star={star} endCause={endCause} />
       ) : isPaused ? (
-        <div>
+        <div className={styles.pause}>
           <p>Game Paused</p>
           <Button onClick={() => setisPaused(false)}>Continue</Button>
         </div>

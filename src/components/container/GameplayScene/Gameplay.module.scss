@@ -17,3 +17,11 @@
   width: 200px;
   position: relative;
 }
+
+.pause {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 768px;
+  flex-direction: column;
+}
