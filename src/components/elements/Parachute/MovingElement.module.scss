@@ -1,0 +1,30 @@
+.movingElement {
+  position: absolute;
+  opacity: 1;
+  right: 210px;
+  animation: spawn 5s ease-out forwards;
+  width: 100px;
+  img {
+    width: 100px;
+  }
+}
+
+@keyframes spawn {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  1% {
+    transform: translateY(10%);
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(430%);
+    opacity: 0;
+  }
+}

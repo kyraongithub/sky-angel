@@ -12,21 +12,21 @@ const Bird = (props: any) => {
   const bird: any = useRef();
 
   useEffect(() => {
-    if (plane !== null && bird !== null) {
-      const rect1 = plane.current.getBoundingClientRect();
-      const rect2 = bird.current.getBoundingClientRect();
+    if (plane !== null && bird !== null && isVisible) {
+      const planeRef = plane.current.getBoundingClientRect();
+      const birdRef = bird.current.getBoundingClientRect();
       if (
         !(
-          rect1?.right < rect2?.left ||
-          rect1?.left > rect2?.right ||
-          rect1?.bottom < rect2?.top ||
-          rect1?.top > rect2?.bottom
+          planeRef?.right < birdRef?.left ||
+          planeRef?.left > birdRef?.right ||
+          planeRef?.bottom < birdRef?.top ||
+          planeRef?.top > birdRef?.bottom
         )
       ) {
         endGameHandler(score, star, setScene);
       }
     }
-  });
+  }, [isVisible, plane, score, setScene, star]);
 
   useEffect(() => {
     setTop(Math.floor(Math.random() * (500 - 0 + 1) + 0));
