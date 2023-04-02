@@ -4,7 +4,6 @@ import styles from "./HomeScene.module.scss";
 
 const HomeScene = (props: any) => {
   const { setScene } = props;
-  console.log(props);
   return (
     <div className={styles.container}>
       <p>SKY ANGEL</p>

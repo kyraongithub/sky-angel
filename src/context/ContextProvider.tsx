@@ -41,18 +41,18 @@ export const GlobalContextProvider = (props: Props) => {
   const [isPaused, setisPaused] = useState<boolean>(false);
 
   useEffect(() => {
-    if (scene === "gameplay") {
+    if (scene === "gameplay" && !isPaused) {
       let interval = setInterval(() => {
-        if (fuel > 0 && !isPaused) {
+        if (fuel > 0) {
           setFuel(fuel - 1);
           setScore(score + 1);
         } else {
           endGameHandler(score, star, setScene);
-          clearInterval(interval);
         }
       }, 1000);
+      return () => clearInterval(interval);
     }
-  }, [fuel, scene]);
+  }, [fuel, isPaused, scene, score, star]);
 
   return (
     <GlobalContext.Provider
