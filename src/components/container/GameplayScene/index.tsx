@@ -119,7 +119,7 @@ const GameScene = (props: any) => {
         <div>
           <div className={styles.header}>
             <p>Time: {score}</p>
-            <p>Fuel: {fuel}</p>
+            <p>Fuel Left: {fuel}</p>
             <p>Stars: {star}</p>
             <Button onClick={() => setisPaused(true)}>Pause</Button>
           </div>
